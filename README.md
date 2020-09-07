@@ -15,7 +15,7 @@ NYABot has a variety of features, with more being added over time. As of now, th
 * Play music from youtube url's (This feature is being worked on, and is not stable)
   * Queue up songs to be played from youtube URL's
   * Automatically leave if queue is empty
-<h2>Roadmap</h2>
+##Roadmap
 Currently NYABot is very rudimentry, but the basic functions required to build more complex ones on are, for the most part, complete.
 The current objective is to work towards finishing the following:
 1. Reimplementing the youtube audio streaming method to download files instead of directly streaming them, providing a more stable experience
