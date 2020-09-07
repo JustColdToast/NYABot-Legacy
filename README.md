@@ -25,5 +25,8 @@ The current objective is to work towards finishing the following:
 3. Finish the implementation of a response system that can respond to specific provided keywords with a provided image (this one is just for fun, and due to it's abusability for spam, should not be used
 in any publically available bots)
 
+## Usage
+Remember to swap out my bot token for your discord bot token and then the bot should go online when running __main__.py
+
 ## License
 Distributed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
