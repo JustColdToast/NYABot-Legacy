@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3eb6bea5-94d4-434b-b806-bfcc3bb677d6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1OkDC9LpJ7CUQZjz91IiwogBXAY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MachineLearning" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kanwarpal Brar\PycharmProjects\NyaBot\musicSrc" />
+      <recent name="C:\Users\Kanwarpal Brar\PycharmProjects\NyaBot" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kanwarpal Brar\PycharmProjects\NyaBot" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.__main__">
+    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NyaBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__main__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tester" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NyaBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="twitter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NyaBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/twitter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.tester" />
+        <item itemvalue="Python.twitter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3eb6bea5-94d4-434b-b806-bfcc3bb677d6" name="Default Changelist" comment="" />
+      <created>1564512570688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564512570688</updated>
+      <workItem from="1573355953764" duration="2235000" />
+      <workItem from="1574554684317" duration="7384000" />
+      <workItem from="1574617531933" duration="1929000" />
+      <workItem from="1574651874212" duration="1216000" />
+      <workItem from="1575068848464" duration="1002000" />
+      <workItem from="1575258487206" duration="637000" />
+      <workItem from="1576203189717" duration="1433000" />
+      <workItem from="1577158347203" duration="67000" />
+      <workItem from="1578452968617" duration="2054000" />
+      <workItem from="1580526987756" duration="94000" />
+      <workItem from="1580527211123" duration="93000" />
+      <workItem from="1580528112021" duration="417000" />
+      <workItem from="1580615227852" duration="285000" />
+      <workItem from="1581307792871" duration="1234000" />
+      <workItem from="1581470120556" duration="223000" />
+      <workItem from="1581471287678" duration="678000" />
+      <workItem from="1581996559060" duration="1345000" />
+      <workItem from="1583369342847" duration="4106000" />
+      <workItem from="1583460226997" duration="1740000" />
+      <workItem from="1584992686182" duration="212000" />
+      <workItem from="1584993374812" duration="58000" />
+      <workItem from="1586914140078" duration="763000" />
+      <workItem from="1588610453251" duration="888000" />
+      <workItem from="1588895450140" duration="242000" />
+      <workItem from="1588896704350" duration="600000" />
+      <workItem from="1592019139832" duration="667000" />
+      <workItem from="1592019948349" duration="3919000" />
+      <workItem from="1592070922147" duration="3621000" />
+      <workItem from="1592177283574" duration="6732000" />
+      <workItem from="1592416088055" duration="142000" />
+      <workItem from="1592418412756" duration="532000" />
+      <workItem from="1593743883211" duration="508000" />
+      <workItem from="1593747286005" duration="235000" />
+      <workItem from="1593991288826" duration="7736000" />
+      <workItem from="1594053591065" duration="2718000" />
+      <workItem from="1594083264608" duration="2838000" />
+      <workItem from="1594086300891" duration="716000" />
+      <workItem from="1594089639007" duration="14202000" />
+      <workItem from="1594150020027" duration="5314000" />
+      <workItem from="1594170494426" duration="5130000" />
+      <workItem from="1594237966101" duration="24000" />
+      <workItem from="1594426762078" duration="798000" />
+      <workItem from="1594433025738" duration="1358000" />
+      <workItem from="1594442818104" duration="1359000" />
+      <workItem from="1594496105280" duration="1903000" />
+      <workItem from="1594593896614" duration="3018000" />
+      <workItem from="1595364947274" duration="635000" />
+      <workItem from="1595369460902" duration="1582000" />
+      <workItem from="1595372135045" duration="196000" />
+      <workItem from="1596566239085" duration="2975000" />
+      <workItem from="1596922493316" duration="32000" />
+      <workItem from="1599502902194" duration="870000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1032" y="178" key="#Inspections" timestamp="1595372207342">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1032" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1595372207342" />
+    <state x="552" y="178" key="#Notifications" timestamp="1592019837728">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1592019837728" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594605339705">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594605339705" />
+    <state x="700" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592179734398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="700" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592179734398" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596922527450">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596922527450" />
+    <state width="1876" height="262" key="GridCell.Tab.0.bottom" timestamp="1596570849875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596570849875" />
+    <state width="1876" height="262" key="GridCell.Tab.0.center" timestamp="1596570849875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596570849875" />
+    <state width="1876" height="262" key="GridCell.Tab.0.left" timestamp="1596570849875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596570849875" />
+    <state width="1876" height="262" key="GridCell.Tab.0.right" timestamp="1596570849875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596570849875" />
+    <state width="1876" height="326" key="GridCell.Tab.1.bottom" timestamp="1592184034210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="326" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592184034210" />
+    <state width="1876" height="326" key="GridCell.Tab.1.center" timestamp="1592184034210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="326" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592184034210" />
+    <state width="1876" height="326" key="GridCell.Tab.1.left" timestamp="1592184034209">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="326" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592184034209" />
+    <state width="1876" height="326" key="GridCell.Tab.1.right" timestamp="1592184034210">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="326" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592184034210" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1595372078882">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595372078882" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1596922503074">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596922503074" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592418539303">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592418539303" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NyaBot$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1596570719419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NyaBot$tester.coverage" NAME="tester Coverage Results" MODIFIED="1594605359350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NyaBot$twitter.coverage" NAME="twitter Coverage Results" MODIFIED="1573358547829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
