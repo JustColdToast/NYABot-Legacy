@@ -1,130 +1,182 @@
-import asyncio
+# Kanwarpal Brar (JustColdToast)
+# NYABot Re-write
 
+# Dependencies
+import threading
 import discord
 import time
-import threading
-
-from MessageResponder import MessageResponder
+import asyncio
 from VoiceClientManager import VoiceClientManager
-
-'''
-THINGS TO DO:
-1: Clean up your voice commands in passToVCManager section, split everything into different methods
-2: Take care of handling errors when passing commands, such as invalid file playing (nonexistant name, no name)
-'''
+from AudioFileManager import FileManager
+import os
 
 
-# Below is the discord client class. It handles all functions involving direct interaction with discord chat messages
-
-
+# ClientManager handles all discord client interaction: responds to client events by communicating with
+# other elements of program
 class ClientManager(discord.Client):
-    voiceCommands = (">>play", ">>pause", ">>start", ">>leave", ">>resume", ">>stop", ">>queue", ">>stream", ">>skip")
+
+    # Command Prefix String
+    prefix = ">>"
+
+    # Owner discord id
+    ownerID = 287250659328393216
+
+    # Holds a list of all valid audio/voice-channel commands
+    voiceCommands = (">>play", ">>pause", ">>start", ">>leave", ">>resume", ">>stop", ">>queue", ">>skip")
+
+    # Holds all Voice Client's associated with instance of Client
     voiceClientManagers = []
-    censorList = []  # Represents a list of user ids to censor
-    # structure of dictionary is: guildId: [arrayofUserId's]
-    watchIdSet = {311652909421166592: []}
-    responder = None
 
-    async def deleteVClient(self, vClient):
-        self.voiceClientManagers.remove(vClient)
+    # Holds all message auto-responders associated with instance of client
+    responders = []
 
-    # The below method manages organization of VoiceClientManagers, and passing of commands
-    async def createVClient(self, message):
-        # Given a message, create a voiceClient manager
-        # This is changed from a previous method where the connection was handled in this file, now it's in VoiceClientManager
-        self.voiceClientManagers.append(VoiceClientManager(message))
-        await self.voiceClientManagers[len(self.voiceClientManagers) - 1].passCommand(message)
+    # Main File Manager
+    fileManager = FileManager(0)
 
+
+
+    # ---- Helper Functions: These are used in conjunction with other functions below (called from them) ----
+
+    # Given a user message, will isolate the command name in the message (up to first space)
+    # and ignoring the command prefix
+    # SHOULD ONLY BE CALLED AFTER CONFIRMING THAT THE COMMAND PREFIX WAS GIVEN
+    def isolateCommand(self, msg):
+        return msg.content.split(" ")[0].replace(self.prefix, "")
+
+    # Handles vClient Disconnects, when passed a client
     async def disconnectVClient(self, vClient):
+        # Tell the vClient to terminate
         await vClient.passCommand(">>leave")
+        # Remove it from the list of vClients
         await self.voiceClientManagers.remove(vClient)
         print("Client Removed due to planned leave")
 
-    async def findVClientByGuild(self, findGuild):
-        for vClient in self.voiceClientManagers:
-            if vClient.guild == findGuild:
-                return vClient
-        return None
+    # Creates a specific vClient, by a message
+    async def createVClient(self, msg):
+        print("vClient Created")
+        # Tell the file manager that a client was added
+        await self.fileManager.clientAdded()
 
-    async def findVClientById(self, findId):
+        # Make Client and pass first command
+        newClient = VoiceClientManager(msg, self.fileManager)
+        await newClient.passCommand(msg)
+        # Add to list of vClients
+        self.voiceClientManagers.append(newClient)
+
+    # will return a specific vClient by a given guild-id
+    async def vClientByGuild(self, guildID):
+        # Currently implemented as a linear search (nothing fancy)
         for vClient in self.voiceClientManagers:
-            if vClient.guild.id == findId:
+            if vClient.guild.id == guildID:
                 return vClient
 
-    async def passToVCManager(self, message):
-        # Given a play command, check if a voice client exists
-        if message.content.startswith(self.voiceCommands[0]):
-            # Now check if the voice client exists
-            vClient = await self.findVClientByGuild(message.guild)
-            if vClient is None:  # If nonetype is returned, create client
-                await self.createVClient(message)
+        return None # No Guild of target ID found
+
+
+    # ---- Inter-Class Function: responsible for setting up responders and voice clients ----
+
+    async def passToVCManager(self, msg):
+        # First check if a vClient exists, and retrieve it
+        targetVClient = await self.vClientByGuild(msg.guild.id)
+
+        # In the case that a play command was issued:
+        if msg.content.startswith(self.voiceCommands[0]):
+            # Check if client exists, create one if does not
+            if targetVClient is None:
+                print("creation reached")
+                await self.createVClient(msg)
             else:
-                # Otherwise if it does exist, pass the command
-                await vClient.passCommand(message)
-        # elif message.content.startswith(self.voiceCommands[5] or self.voiceCommands[3]):
-        #     # Given a disconnect or leave command, perform the instructions for a disconnect
-        #     await self.disconnectVClient(await self.findVClientByGuild(message.guild))
-        else:
-            # Given any other command check if the client exists, and pass command
-            # Only the play command has the ability to create a new VoiceClientManager
-            vClient = await self.findVClientByGuild(message.guild)
-            if vClient is not None:
-                await vClient.passCommand(message)
+                # Otherwise, just pass the command
+                await targetVClient.passCommand(msg)
+        else:  # Any other voice command called
+            # only pass command if vClient exists (only play can create clients)
+            if targetVClient is not None:
+                await targetVClient.passCommand(msg)
 
-    def isVoiceCommand(self, message):
-        for command in self.voiceCommands:
-            if message.content.startswith(command):
-                return True
-        return False
 
-    async def passToResponder(self, message):
-        print("responding")
-        if self.responder is None:
-            self.responder = MessageResponder(message)
-        else:
-            await self.responder.passCommand(message)
+    # ---- Primary Functions ----
+    # These are all the top-level commands that the bot can respond to, all stored in a dictionary of functions
 
+    # Summon is a test function
+    async def summon(self, msg):
+        await msg.channel.send("Yo!")
+
+    # Admin is an direct-control function, for debugging (and messing with people)
+    async def admin(self, msg):
+        # Safety check, only owner can call this method
+        if msg.author.id == self.ownerID:
+            while True:
+                print("receiving")
+                text = input(": ")
+                if text == "break":
+                    break
+                else:
+                    await msg.channel.send(msg)
+
+    # vClients is a debugging function that returns the number of connected voice managers for client instance
+    async def vClients(self, msg):
+        await msg.channel.send("I am currently connected to "+str(len(self.voiceClientManagers))+" voice channels")
+
+    # Below functions are all voice commands and will pass secondary to the manager function for them
+    async def play(self, msg):
+        print("played")
+        await self.passToVCManager(msg)
+    async def pause(self, msg):
+        await self.passToVCManager(msg)
+    async def leave(self, msg):
+        await self.passToVCManager(msg)
+    async def resume(self, msg):
+        await self.passToVCManager(msg)
+    async def stop(self, msg):
+        await self.passToVCManager(msg)
+    async def queue(self, msg):
+        await self.passToVCManager(msg)
+    async def skip(self, msg):
+        await self.passToVCManager(msg)
+
+    # A Dictionary of all primary functions, using the functions as value
+    # This will return the function by it's key, and parameters can be passed on the dict.get
+    # I basically only did this so that I didn't have a giant if-else block for every possible command input
+    primaryFunc = {
+        "summon": summon,
+        "admin": admin,
+        "vClients": vClients,
+        "play": play,
+        "pause": pause,
+        "leave": leave,
+        "resume": resume,
+        "stop": stop,
+        "queue": queue,
+        "skip": skip
+    }
+
+    # ---- Event Functions----
+
+    # Called when connection to discord service is established
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
 
+    # Handles all discord server message events, for all connected servers on client instance
     async def on_message(self, message):
-        if message.author == client.user:  # Prevent bot from responding to itself
+        # Prevents bot from responding to itself
+        if message.author == self.user:
             return
-        # print('Message from {0.author}: {0.content}'.format(message))
 
-        # message type is passed to function, .content returns as a string
-        if message.content.startswith(">>"):  # Only execute commands starting with >
-            if message.content.startswith(">>summon"):  # Summon command
-                await message.channel.send("Yo!")
-            elif message.content.startswith(">>admin") and message.author.id == 287250659328393216:  # Summon command
-                while True:
-                    print("receiving")
-                    msg = input(": ")
-                    if msg == "break":
-                        break
-                    else:
-                        await message.channel.send(msg)
-            elif message.content.startswith(">>vClients"):
-                await message.channel.send("I am currently connected to "+str(len(self.voiceClientManagers))+" voice channels")
-            elif message.content.startswith(">>respondto"):
-                await self.passToResponder(message)
-            elif self.isVoiceCommand(message):
-                # This branch exists if the message provided is a voice command
-                # It passes the command to the voiceClientManager method on an await
-                await self.passToVCManager(message)
+        # Main branches for handling text commands
+        # Checks if message starts with command prefix: passes valid command if so
+        if message.content.startswith(self.prefix):
+            # Try-except because command might not exist, in which case NoneType is returned
+            try:
+                await self.primaryFunc.get(self.isolateCommand(message))(self, message)
+            except TypeError: # Means command does not exist
+                return
 
+    # Called whenever there is a state change in a voice channel on any connected guild
     async def on_voice_state_update(self, member, before, after):
-        # State changes are monitored so the bot can delete unused voice clients when it is disconnected
-        # Otherwise, disconnections would leave the client open, whereas the leave command will not
-        # By letting the manager handle the deletion of the client by an update I no longer have to manually do it
-        # ... Now I can just pass the command to the bot and deletion is done on any general leave
-        if (member == client.user) and (after.channel is None):
-            for vClient in self.voiceClientManagers:
-                if vClient.guild == before.channel.guild:
-                    await self.deleteVClient(vClient)
-                    print("Client deleted due to disconnect")
+        return
 
 
+# Set up client, client thread, and execute thread
 client = ClientManager()
-mainLoop = threading.Thread(target=client.run, args=("[YourTokenHere]",))
+mainLoop = threading.Thread(target=client.run, args=("[TOKEN]",))
 mainLoop.start()
